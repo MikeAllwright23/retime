@@ -1,0 +1,89 @@
+,Species,Lipid ID,Mass,Train/Test,Retention Time
+0,Cer 3mth mice,Cer (d18:1/14:0),510.6,Train,11.93
+1,Cer 3mth mice,Cer (d18:1/16:0),538.6,Train,12.8
+2,Cer 3mth mice,Cer (d18:1/17:0),552.7,Train,13.16
+3,Cer 3mth mice,Cer (d18:1/18:0),566.7,Train,13.51
+4,Cer 3mth mice,Cer (d18:1/20:0),594.7,Train,14.15
+5,Cer 3mth mice,Cer (d18:1/22:0),622.7,Train,14.73
+6,Cer 3mth mice,Cer (d18:1/23:0),636.6,Test,15.0
+7,Cer 3mth mice,Cer (d18:1/24:0),650.8,Train,15.26
+8,Cer 3mth mice,Cer (d18:1/18:1),564.5,Train,13.04
+9,Cer 3mth mice,Cer (d18:1/20:1),592.7,Test,13.72
+10,Cer 3mth mice,Cer (d18:1/22:1),620.7,Test,14.3
+11,Cer 3mth mice,Cer (d18:1/23:1),634.7,Test,14.6
+12,Cer 3mth mice,Cer (d18:1/24:1),648.8,Train,14.81
+13,Cer 3mth mice,Cer (d18:0/16:0),540.4,Train,13.02
+14,Cer 3mth mice,Cer (d18:0/18:0),568.7,Train,13.75
+15,Cer 3mth mice,Cer (d18:0/24:0),652.9,Train,15.44
+16,Sphingomyelin 3mth mice,SM (d18:1/12:0),647.5,Train,10.38
+17,Sphingomyelin 3mth mice,SM (d18:1/14:0),675.5,Test,11.41
+18,Sphingomyelin 3mth mice,SM (d18:1/16:0),703.6,Test,12.31
+19,Sphingomyelin 3mth mice,SM (d18:1/18:0),731.6,Train,13.08
+20,Sphingomyelin 3mth mice,SM (d18:1/20:0),759.6,Test,13.74
+21,Sphingomyelin 3mth mice,SM (d18:1/22:0),787.7,Test,14.4
+22,Sphingomyelin 3mth mice,SM (d18:1/23:0),801.6,Test,14.67
+23,Sphingomyelin 3mth mice,SM (d18:1/24:0),815.7,Train,14.89
+24,Sphingomyelin 3mth mice,SM (d18:1/25:0),829.7,Test,15.2
+25,Sphingomyelin 3mth mice,SM (d18:1/26:0),843.7,Test,15.49
+26,Sphingomyelin 3mth mice,SM (d18:1/16:1),701.6,Test,11.72
+27,Sphingomyelin 3mth mice,SM (d18:1/18:1),729.6,Test,12.59
+28,Sphingomyelin 3mth mice,SM (d18:1/20:1),757.6,Test,13.34
+29,Sphingomyelin 3mth mice,SM (d18:1/22:1),785.7,Test,13.91
+30,Sphingomyelin 3mth mice,SM (d18:1/23:1),799.7,Test,14.21
+31,Sphingomyelin 3mth mice,SM (d18:1/24:1),813.7,Test,14.48
+32,Sphingomyelin 3mth mice,SM (d18:1/25:1),827.7,Test,14.78
+33,Sphingomyelin 3mth mice,SM (d18:1/26:1),841.7,Test,15.03
+34,Ceramide 6mth mice,Cer (d18:1/14:0),510.6,Test,
+35,Ceramide 6mth mice,Cer (d18:1/16:0),538.6,Train,13.608235294117648
+36,Ceramide 6mth mice,Cer (d18:1/17:0),552.7,Train,13.978235294117646
+37,Ceramide 6mth mice,Cer (d18:1/18:0),566.7,Train,14.304117647058826
+38,Ceramide 6mth mice,Cer (d18:1/20:0),594.7,Train,14.936470588235292
+39,Ceramide 6mth mice,Cer (d18:1/22:0),622.7,Train,15.494705882352942
+40,Ceramide 6mth mice,Cer (d18:1/23:0),636.6,Test,
+41,Ceramide 6mth mice,Cer (d18:1/24:0),650.8,Train,15.641176470588235
+42,Ceramide 6mth mice,Cer (d18:1/18:1),564.5,Train,13.857058823529414
+43,Ceramide 6mth mice,Cer (d18:1/20:1),592.7,Test,14.625
+44,Ceramide 6mth mice,Cer (d18:1/22:1),620.7,Test,15.209166666666668
+45,Ceramide 6mth mice,Cer (d18:1/23:1),634.7,Test,
+46,Ceramide 6mth mice,Cer (d18:1/24:1),648.8,Train,15.441764705882353
+47,Ceramide 6mth mice,Cer (d18:0/16:0),540.4,Train,13.923333333333334
+48,Ceramide 6mth mice,Cer (d18:0/18:0),568.7,Train,14.567647058823532
+49,Ceramide 6mth mice,Cer (d18:0/24:0),652.9,Test,16.041428571428572
+50,Ceramide 6mth mice,Cer (d18:2/16:0),536.5,Test,13.110833333333334
+51,Ceramide 6mth mice,Cer (d18:2/18:0),564.5,Test,13.855000000000004
+52,Ceramide 6mth mice,Cer (d18:2/24:0),648.6,Test,15.25
+53,Ceramide 6mth mice,Cer (d18:2/16:1),534.5,Test,12.743333333333332
+54,Ceramide 6mth mice,Cer (d18:2/18:1),562.5,Test,13.466666666666667
+55,Ceramide 6mth mice,Cer (d18:2/24:1),644.6,Test,14.75
+56,Human Hippocamupus Cer,Cer (d18:1/14:0),510.6,Train,15.45452706245941
+57,Human Hippocamupus Cer,Cer (d18:1/16:0),538.6,Train,16.344395435701177
+58,Human Hippocamupus Cer,Cer (d18:1/17:0),552.7,Train,16.823528288938878
+59,Human Hippocamupus Cer,Cer (d18:1/18:0),566.7,Train,17.354330634213927
+60,Human Hippocamupus Cer,Cer (d18:1/20:0),594.7,Train,18.578057555602992
+61,Human Hippocamupus Cer,Cer (d18:1/22:0),622.7,Train,20.085630948679565
+62,Human Hippocamupus Cer,Cer (d18:1/23:0),636.6,Test,20.954206289832804
+63,Human Hippocamupus Cer,Cer (d18:1/24:0),650.8,Train,21.895826646868127
+64,Human Hippocamupus Cer,Cer (d18:1/25:0),664.8,Test,22.935602118386107
+65,Human Hippocamupus Cer,Cer (d18:1/26:0),678.8,Test,24.0251240295097
+66,Human Hippocamupus Cer,Cer (d18:1/18:1),564.5,Train,16.663256842898914
+67,Human Hippocamupus Cer,Cer (d18:1/20:1),592.7,Test,17.655380754856512
+68,Human Hippocamupus Cer,Cer (d18:1/22:1),620.7,Test,18.903148058445737
+69,Human Hippocamupus Cer,Cer (d18:1/23:1),634.7,Test,19.646671079408037
+70,Human Hippocamupus Cer,Cer (d18:1/24:1),648.8,Train,20.41490861692168
+71,Human Hippocamupus Cer,Cer (d18:0/16:0),540.4,Train,16.85452179536266
+72,Human Hippocamupus Cer,Cer (d18:0/18:0),568.7,Train,17.914050766620125
+73,Human Hippocamupus Cer,Cer (d18:0/24:0),652.9,Train,22.523682519383904
+60,Short Cer,Cer (d18:0/16:0),540.4,Train,3.1393666267395
+156,Short SM,SM (d18:1/24:0),815.7,Test,4.94089984893798
+198,Short Cer,Cer (d18:1/17:0),552.7,Train,3.19463324546814
+220,Short Cer,Cer (d18:1/16:0),538.6,Train,3.01166677474975
+234,Short Cer,Cer (d18:1/22:0),622.7,Test,4.59971666336059
+236,Short Cer,Cer (d18:1/24:0),650.8,Test,5.45783329010009
+244,Short Cer,Cer (d18:1/18:0),566.7,Test,3.3961501121521
+305,Short Cer,Cer (d18:1/18:1),564.5,Test,3.10408329963684
+316,Short Cer,Cer (d18:1/24:1),648.8,Test,4.72948312759399
+332,Short SM,SM (d18:1/12:0),647.5,Train,2.32485008239746
+369,Short SM,SM (d18:1/18:0),731.6,Train,3.18791675567627
+399,Short Cer,Cer (d18:0/18:0),564.5,Train,3.57848334312439
+407,Short Cer,Cer (d18:1/20:0),594.7,Train,3.92525005340576
+453,Short Cer,Cer (d18:0/24:1),648.8,Train,5.04008340835571

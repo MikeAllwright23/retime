@@ -1,0 +1,38 @@
+﻿Lipid ID,Mass,Type,Predicted Retention Time,Retention Time
+HexCer (d18:1/12:0),644.6,Test,,
+HexCer (d18:2/16:1),696.6,Train,,13.73
+HexCer (d18:2/16:0),698.6,Train,,13.97
+HexCer (d18:1/16:1),698.6,Test,,
+HexCer (d18:1/16:0),700.6,Test,,
+HexCer (d18:2/16:0) -OH,714.7,Train,,13.72
+HexCer (d18:1/16:1) -OH,714.7,Test,,
+HexCer (d18:1/16:0) -OH,716.7,Test,,
+HexCer (d18:2/18:1),724.7,Test,,
+HexCer (d18:2/18:0),726.6,Train,,14.72
+HexCer (d18:1/18:1),726.7,Train,,14.72
+HexCer (d18:1/18:0),728.6,Train,,15.14
+HexCer (d18:2/18:0) - OH,742.7,Test,,
+HexCer (d18:1/18:1) - OH,742.7,Test,,
+HexCer (d18:1/18:0) - OH,744.7,Train,,14.45
+HexCer (d18:2/20:1),752.6,Test,,
+HexCer (d18:2/20:0),754.6,Test,,
+HexCer (d18:1/20:1),754.6,Test,,
+HexCer (d18:1/20:0),756.6,Test,,
+HexCer (d18:2/20:0) -OH,770.7,Test,,
+HexCer (d18:1/20:1) - OH,770.7,Test,,
+HexCer (d18:1/20:0) - OH,772.7,Test,,
+HexCer (d18:2/22:1),780.6,Train,,15.81
+HexCer (d18:2/22:0),782.7,Train,,15.97
+HexCer (d18:1/22:1),782.7,Test,,
+HexCer (d18:1/22:0),784.7,Train,,16.32
+HexCer (d18:2/22:0) -OH,798.7,Train,,15.79
+HexCer (d18:1/22:1) - OH,798.7,Train,,16.61
+HexCer (d18:1/22:0) - OH,800.7,Test,,
+HexCer (d18:2/24:1),808.7,Test,,
+HexCer (d18:2/24:0),810.7,Train,,16.52
+HexCer (d18:1/24:1),810.7,Train,,16.41
+HexCer (d18:1/24:0),812.7,Train,,16.41
+HexCer (d18:2/24:1) - OH,824.7,Test,,
+HexCer (d18:2/24:0) - OH,826.7,Test,,
+HexCer (d18:1/24:1) - OH,826.7,Train,,16.23
+HexCer (d18:1/24:0) - OH,828.8,Test,,

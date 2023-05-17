@@ -1,0 +1,129 @@
+,Species,Lipid ID,Mass,Retention Time,Train/Test
+0,ST (AD study brain),ST(d18:1/12:0),724.5,12.9207028814,Train
+1,ST (AD study brain),ST(d18:1/14:0),752.5,14.1064951515,Train
+2,ST (AD study brain),ST(d18:1/16:0),780.5,15.2892868293,Train
+3,ST (AD study brain),ST(d18:1/18:0),808.6,16.2060865957,Train
+4,ST (AD study brain),ST(d18:1/18:0)-OH,824.6,17.3724040385,Train
+5,ST (AD study brain),ST(d18:1/20:0),836.6,17.6938181818,Train
+6,ST (AD study brain),ST(d18:1/22:1),862.6,17.629895,Train
+7,ST (AD study brain),ST(d18:1/22:0),864.6,18.72748,Train
+8,ST (AD study brain),ST(d18:1/23:1),876.6,18.2876068889,Train
+9,ST (AD study brain),ST(d18:1/23:0),878.6,19.4924645238,Train
+10,ST (AD study brain),ST(d18:1/22:1)-OH,878.6,16.4215625,Train
+11,ST (AD study brain),ST(d18:1/22:0)-OH,880.6,18.3536430952,Train
+12,ST (AD study brain),ST(d18:1/23:1)-OH,892.6,17.72268125,Train
+13,ST (AD study brain),ST(d18:1/24:0),892.6,20.3149288889,Train
+14,ST (AD study brain),ST(d18:1/24:1),890.6,18.9534022222,Train
+15,ST (AD study brain),ST(d18:1/23:0)-OH,894.6,19.0902781481,Test
+16,ST (AD study brain),ST(d18:1/25:1),904.6,19.697663,Train
+17,ST (AD study brain),ST(d18:1/25:0),906.6,21.1687957143,Test
+18,ST (AD study brain),ST(d18:1/24:1)-OH,906.6,18.5987454902,Test
+19,ST (AD study brain),ST(d18:1/24:0)-OH,908.6,19.919796,Train
+20,ST (AD study brain),ST(d18:1/26:1),918.6,20.5039920455,Train
+21,ST (AD study brain),ST(d18:1/26:0),920.6,22.0593174194,Test
+22,ST (AD study brain),ST(d18:1/25:1)-OH,920.6,19.303304,Test
+23,ST (AD study brain),ST(d18:1/25:0)-OH,922.6,20.756067381,Train
+24,ST (AD study brain),ST(d18:1/26:1)-OH,934.6,20.0535797727,Train
+25,ST (AD study brain),ST(d18:1/26:0)-OH,936.6,21.6403026316,Train
+0,ApoE Mouse Brain,ST(d18:1/12:0),724.5,12.81,Train
+1,ApoE Mouse Brain,ST(d18:1/14:0),752.5,,Train
+2,ApoE Mouse Brain,ST(d18:1/16:0),780.5,14.92,Train
+3,ApoE Mouse Brain,ST(d18:1/18:0),808.6,,Train
+4,ApoE Mouse Brain,ST(d18:1/20:0),836.6,16.63,Train
+5,ApoE Mouse Brain,ST(d18:1/22:0),864.6,17.64,Test
+6,ApoE Mouse Brain,ST(d18:1/23:0),878.6,18.24,Train
+7,ApoE Mouse Brain,ST(d18:1/24:0),892.6,18.82,Train
+8,ApoE Mouse Brain,ST(d18:1/25:0),906.6,,Train
+9,ApoE Mouse Brain,ST(d18:1/26:0),920.6,,Test
+10,ApoE Mouse Brain,ST(d18:1/22:1),862.6,16.62,Train
+11,ApoE Mouse Brain,ST(d18:1/23:1),876.6,17.09,Test
+12,ApoE Mouse Brain,ST(d18:1/24:1),890.6,17.84,Train
+13,ApoE Mouse Brain,ST(d18:1/25:1),904.6,18.1,Train
+14,ApoE Mouse Brain,ST(d18:1/26:1),918.6,,Test
+15,ApoE Mouse Brain,ST(d18:1/18:0)-OH,824.6,16.51,Train
+16,ApoE Mouse Brain,ST(d18:1/20:0)-OH,852.6,,Test
+17,ApoE Mouse Brain,ST(d18:1/22:0)-OH,880.6,18.73,Test
+18,ApoE Mouse Brain,ST(d18:1/23:0)-OH,894.6,19.44,Train
+19,ApoE Mouse Brain,ST(d18:1/24:0)-OH,908.6,20.25,Train
+20,ApoE Mouse Brain,ST(d18:1/25:0)-OH,922.6,21.05,Train
+21,ApoE Mouse Brain,ST(d18:1/26:0)-OH,936.6,21.95,Train
+22,ApoE Mouse Brain,ST(d18:1/22:1)-OH,878.6,17.66,Train
+23,ApoE Mouse Brain,ST(d18:1/23:1)-OH,892.6,18.36,Train
+24,ApoE Mouse Brain,ST(d18:1/24:1)-OH,906.6,19.0,Train
+25,ApoE Mouse Brain,ST(d18:1/25:1)-OH,920.6,19.69,Train
+26,ApoE Mouse Brain,ST(d18:1/26:1)-OH,934.6,20.46,Train
+0,SK2KO Mouse 12mth,ST(d18:1/12:0),724.5,12.57,Train
+1,SK2KO Mouse 12mth,ST(d18:1/14:0),752.5,13.53,Train
+2,SK2KO Mouse 12mth,ST(d18:1/16:0),780.5,14.65,Train
+3,SK2KO Mouse 12mth,ST(d18:1/18:0),808.6,15.6,Train
+4,SK2KO Mouse 12mth,ST(d18:1/20:0),836.6,16.43,Train
+5,SK2KO Mouse 12mth,ST(d18:1/22:0),864.6,17.36,Train
+6,SK2KO Mouse 12mth,ST(d18:1/23:0),878.6,17.89,Test
+7,SK2KO Mouse 12mth,ST(d18:1/24:0),892.6,18.49,Train
+8,SK2KO Mouse 12mth,ST(d18:1/25:0),906.6,18.95,Train
+9,SK2KO Mouse 12mth,ST(d18:1/26:0),920.6,19.87,Train
+10,SK2KO Mouse 12mth,ST(d18:1/22:1),862.6,16.62,Train
+11,SK2KO Mouse 12mth,ST(d18:1/23:1),876.6,17.09,Test
+12,SK2KO Mouse 12mth,ST(d18:1/24:1),890.6,17.53,Train
+13,SK2KO Mouse 12mth,ST(d18:1/25:1),904.6,18.1,Train
+14,SK2KO Mouse 12mth,ST(d18:1/26:1),918.6,18.61,Train
+15,SK2KO Mouse 12mth,ST(d18:1/18:0)-OH,824.6,15.24,Train
+16,SK2KO Mouse 12mth,ST(d18:1/20:0)-OH,852.6,,Train
+17,SK2KO Mouse 12mth,ST(d18:1/22:0)-OH,880.6,17.08,Train
+18,SK2KO Mouse 12mth,ST(d18:1/23:0)-OH,894.6,17.56,Train
+19,SK2KO Mouse 12mth,ST(d18:1/24:0)-OH,908.6,18.19,Train
+20,SK2KO Mouse 12mth,ST(d18:1/25:0)-OH,922.6,18.69,Test
+21,SK2KO Mouse 12mth,ST(d18:1/26:0)-OH,936.6,19.8,Train
+22,SK2KO Mouse 12mth,ST(d18:1/22:1)-OH,878.6,16.39,Test
+23,SK2KO Mouse 12mth,ST(d18:1/23:1)-OH,892.6,16.84,Train
+24,SK2KO Mouse 12mth,ST(d18:1/24:1)-OH,906.6,17.21,Train
+25,SK2KO Mouse 12mth,ST(d18:1/25:1)-OH,920.6,17.66,Train
+0,SK2 mice (ACN-MEOH chrom),ST(d18:1/12:0),724.46641247,7.257629629629627,Test
+1,SK2 mice (ACN-MEOH chrom),ST(d18:1/18:0),808.56031247,9.544888888888888,Test
+2,SK2 mice (ACN-MEOH chrom),ST(d18:1/22:0),864.62291247,10.879000000000003,Test
+3,SK2 mice (ACN-MEOH chrom),ST(d18:1/23:0),878.63856247,11.196740740740738,Test
+4,SK2 mice (ACN-MEOH chrom),ST(d18:1/24:0),892.65421247,11.51977777777778,Train
+5,SK2 mice (ACN-MEOH chrom),ST(d18:1/18:0)-OH,824.55522747,9.351740740740741,Test
+6,SK2 mice (ACN-MEOH chrom),ST(d18:1/20:0)-OH,852.58652747,10.077333333333334,Train
+7,SK2 mice (ACN-MEOH chrom),ST(d18:1/22:0)-OH,880.61782747,10.781703703703705,Train
+8,SK2 mice (ACN-MEOH chrom),ST(d18:1/23:0)-OH,894.63347747,11.085592592592592,Test
+9,SK2 mice (ACN-MEOH chrom),ST(d18:1/24:0)-OH,908.64912747,11.39540740740741,Train
+10,SK2 mice (ACN-MEOH chrom),ST(d18:1/22:1),862.60726247,10.198740740740742,Train
+11,SK2 mice (ACN-MEOH chrom),ST(d18:1/24:1),890.63856247,10.851222222222223,Test
+12,SK2 mice (ACN-MEOH chrom),ST(d18:1/25:1),904.65421247,11.14177777777778,Test
+0,Lung Tissue,ST(d18:1/16:0),16.19,780.5,Train
+1,Lung Tissue,ST(d18:1/18:0),16.66,808.6,Test
+2,Lung Tissue,ST(d18:1/20:0),17.02,836.6,Train
+3,Lung Tissue,ST(d18:1/22:0),17.83,864.6,Train
+4,Lung Tissue,ST(d18:1/24:0),18.79,892.6,Train
+5,Lung Tissue,ST(d18:1/18:1),15.72,806.6,Train
+6,Lung Tissue,ST(d18:1/22:1),16.91,862.6,Test
+7,Lung Tissue,ST(d18:1/24:1),17.96,890.6,Train
+8,Lung Tissue,ST(d18:1/26:1),18.84,918.6,Train
+0,Human Plasma,ST(d18:1/12:0),724.5,9.1,Test
+1,Human Plasma,ST(d18:1/14:0),752.5,,Test
+2,Human Plasma,ST(d18:1/16:0),780.5,,Test
+3,Human Plasma,ST(d18:1/18:0),808.6,,Test
+4,Human Plasma,ST(d18:1/20:0),836.6,13.56,Test
+5,Human Plasma,ST(d18:1/22:0),864.6,14.82,Test
+6,Human Plasma,ST(d18:1/23:0),878.6,15.55,Train
+7,Human Plasma,ST(d18:1/24:0),892.6,16.18,Train
+8,Human Plasma,ST(d18:1/25:0),906.6,,Train
+9,Human Plasma,ST(d18:1/26:0),920.6,,Train
+10,Human Plasma,ST(d18:1/22:1),862.6,13.83,Train
+11,Human Plasma,ST(d18:1/23:1),876.6,,Train
+12,Human Plasma,ST(d18:1/24:1),890.6,14.98,Train
+13,Human Plasma,ST(d18:1/25:1),904.7,15.69,Train
+14,Human Plasma,ST(d18:1/26:1),918.7,16.34,Train
+15,Human Plasma,ST(d18:1/18:0)-OH,824.6,12.11,Train
+16,Human Plasma,ST(d18:1/20:0)-OH,852.6,,Train
+17,Human Plasma,ST(d18:1/22:0)-OH,880.6,14.5,Train
+18,Human Plasma,ST(d18:1/23:0)-OH,894.6,15.11,Train
+19,Human Plasma,ST(d18:1/24:0)-OH,908.6,15.81,Train
+20,Human Plasma,ST(d18:1/25:0)-OH,922.6,,Train
+21,Human Plasma,ST(d18:1/26:0)-OH,936.6,,Test
+22,Human Plasma,ST(d18:1/22:1)-OH,878.6,,Train
+23,Human Plasma,ST(d18:1/23:1)-OH,892.6,,Train
+24,Human Plasma,ST(d18:1/24:1)-OH,906.6,14.71,Train
+25,Human Plasma,ST(d18:1/25:1)-OH,920.6,,Train
+26,Human Plasma,ST(d18:1/26:1)-OH,934.6,,Train
