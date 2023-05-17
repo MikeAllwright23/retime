@@ -223,7 +223,7 @@ else:
 
 			#df_out.to_csv(path+file_out)
 
-			st.write('File '+file_out+' exported!')
+			#st.write('File '+file_out+' exported!')
 
 			st.download_button(
 			    label="Download data as CSV",
