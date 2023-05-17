@@ -179,7 +179,7 @@ else:
 
 			preds2=[p for p in predictors if df_train[p].nunique()>1]
 
-			st.write(df)
+			#st.write(df)
 		    
 			df=scale_df(df,preds2)
 
