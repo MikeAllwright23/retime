@@ -127,7 +127,9 @@ else:
 
 		file_name=re.sub('.xlsx|.csv','',uploaded_file.name)
 
-		st.write(file_name)
+		st.write('You selected the following file: '+file_name)
+
+		st.write("Now running the retime algorithm...")
 
 
 		try:
@@ -209,7 +211,7 @@ else:
 			for c in ['Predicted Retention Time','Actual Retention Time']:
 
 				df_out[c]=df_out[c].apply(lambda x:round(x,2))
-
+			st.write("Here are the retime generated retention times:")
 			st.write(df_out)	
 
 			@st.cache
