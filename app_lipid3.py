@@ -221,7 +221,7 @@ else:
 			
 			file_out=file_name+' '+k+'.csv'
 
-			df_out.to_csv(path+file_out)
+			#df_out.to_csv(path+file_out)
 
 			st.write('File '+file_out+' exported!')
 
