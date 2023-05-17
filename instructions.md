@@ -1,4 +1,4 @@
-# Instructions on how to run ReTime to predict Retention Times for Lipids
+# Instructions on how to run ReTime to predict Retention Times for sphingolipids
 ## Basics
 For this to work you will need to upload a datafile of lipids and their retention times.
 Input should have "Train" and "Test" labelled in a csv as below

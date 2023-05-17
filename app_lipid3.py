@@ -105,7 +105,7 @@ def read_markdown_file(markdown_file):
 
 st.set_page_config(page_title='IDEARS retime',  layout='wide', page_icon=':machine learning:')
 
-st.title('ReTime: Lipid Retention Time Predictor')
+st.title('ReTime: Retention Time Predictor')
 
 
 
