@@ -40,6 +40,7 @@ def file_selector(folder_path=path):
 
 
 #2 - calculate all variables
+#
 
 def findx(string):
 
