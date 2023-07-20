@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 import os
 from pathlib import Path
 import re
+import seaborn as sns
 
 from sklearn import linear_model
 from sklearn.preprocessing import StandardScaler
@@ -53,10 +54,12 @@ def findx(string):
 	c2=string[d+1:d+3]
 	dc2=string[d+4:d+5]
 	oh=0
+
+	mol_series="d18:"+dc1+"/"+"XX:"+dc2
 	if re.search('OH',string):
 		oh=1
 	
-	return c1,dc1,c2,dc2,oh
+	return c1,dc1,c2,dc2,oh,mol_series
 
 def mass_trans(df,verbose=False):
 
@@ -161,6 +164,9 @@ else:
 			df=df_all[k]
 			df.columns=[c.strip() for c in df.columns]
 
+			if "RT" in df.columns:
+				df.rename(columns={'RT':'Retention Time'})
+
 			if 'Type' not in df.columns:
 				df['Type']='Train'
 				mask=pd.isnull(df['Retention Time'])
@@ -173,7 +179,7 @@ else:
 			df['carbs']=df['Lipid ID'].apply(findx)
 
 			for i,c in enumerate(['spingoid_backbone_carb', 'spingoid_backbone_dbl_bonds','fatty_acyl_carb', 'fatty_acyl_dbl_bonds',
-							  'OH']):
+							  'OH','mol_series']):
 				df[c]=df['carbs'].apply(lambda x:x[i])
 
 			
@@ -204,11 +210,11 @@ else:
 
 			#now show the dumbell chart with predictions followed by the ability to download
 
-			df_out=df[['Lipid ID','Type','lass_ret','Retention Time']]
+			df_out=df[['Lipid ID','mol_series','Type','lass_ret','Retention Time']]
 
 			df_out=pd.merge(dfk[['Lipid ID','Mass']],df_out,on='Lipid ID')
 
-			df_out.columns=['Lipid ID','Mass','Type','Predicted Retention Time','Actual Retention Time']
+			df_out.columns=['Lipid ID','Mass','mol_series','Type','Predicted Retention Time','Actual Retention Time']
 
 			for c in ['Predicted Retention Time','Actual Retention Time']:
 
@@ -224,6 +230,9 @@ else:
 			csv = convert_df(df_out)
 			
 			file_out=file_name+' '+k+'.csv'
+
+			fig=sns.lmplot(data=df_out,x='Mass',y='Predicted Retention Time',hue='mol_series')
+			st.pyplot(fig)
 
 			#df_out.to_csv(path+file_out)
 
