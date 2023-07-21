@@ -231,7 +231,8 @@ else:
 			
 			file_out=file_name+' '+k+'.csv'
 
-			fig=sns.lmplot(data=df_out,x='Mass',y='Predicted Retention Time',hue='mol_series')
+			df_out.rename(columns={'Mass':'m/z'},inplace=True)
+			fig=sns.lmplot(data=df_out,x='m/z',y='Predicted Retention Time',hue='mol_series',order=2)
 			st.pyplot(fig)
 
 			#df_out.to_csv(path+file_out)
