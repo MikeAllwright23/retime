@@ -232,6 +232,7 @@ else:
 			file_out=file_name+' '+k+'.csv'
 
 			df_out.rename(columns={'Mass':'m/z'},inplace=True)
+			df_out.sort_values(by='mol_series',inplace=True)
 			fig=sns.lmplot(data=df_out,x='m/z',y='Predicted Retention Time',hue='mol_series',order=2)
 			st.pyplot(fig)
 
