@@ -107,7 +107,7 @@ def read_markdown_file(markdown_file):
 
 #6 - output revised csv
 
-st.set_page_config(page_title='IDEARS retime',  layout='wide', page_icon=':machine learning:')
+st.set_page_config(page_title='ReTimeML',  layout='wide', page_icon=':machine learning:')
 
 st.title('ReTimeML: Retention Time Predictor')
 
