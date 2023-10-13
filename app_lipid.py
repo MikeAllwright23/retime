@@ -58,7 +58,7 @@ def read_markdown_file(markdown_file):
 	return Path(markdown_file).read_text()
 
 if app_mode=="Show instructions":
-	intro_markdown = read_markdown_file("instructions.md")
+	intro_markdown = read_markdown_file("intro.md")
 	st.markdown(intro_markdown, unsafe_allow_html=True)
 
 else:	

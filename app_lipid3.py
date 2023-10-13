@@ -121,7 +121,7 @@ app_mode = st.sidebar.selectbox("Choose the app mode",
 
 
 if app_mode=="Show instructions":
-	intro_markdown = read_markdown_file("instructions.md")
+	intro_markdown = read_markdown_file("intro.md")
 	st.markdown(intro_markdown, unsafe_allow_html=True)
 
 else:	
