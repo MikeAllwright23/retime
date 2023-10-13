@@ -109,7 +109,7 @@ def read_markdown_file(markdown_file):
 
 st.set_page_config(page_title='ReTimeML',  layout='wide', page_icon=':machine learning:')
 
-st.title('ReTimeML: Retention Time Predictor')
+st.title('ReTimeML: A Retention Time Predictor for the LC - MS/MS analysis of ceramides and sphingomyelins*')
 
 
 
@@ -125,6 +125,9 @@ if app_mode=="Show instructions":
 	st.markdown(intro_markdown, unsafe_allow_html=True)
 
 else:	
+
+	intro_markdown = read_markdown_file("intro.md")
+	st.markdown(intro_markdown, unsafe_allow_html=True)
 
 	uploaded_file = st.file_uploader("Choose a file")
 	
