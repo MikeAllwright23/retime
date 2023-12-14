@@ -169,7 +169,7 @@ else:
 			df=df_all[k]
 			df.columns=[c.strip() for c in df.columns]
 
-			mask=(df['Lipid ID'].apply(lambda x:len(x))>5)
+			mask=(df['Lipid ID'].astype(str).apply(lambda x:len(x))>5)
 			df=df.loc[mask,]
 
 			#st.write(df.columns)
