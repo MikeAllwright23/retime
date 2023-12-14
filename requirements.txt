@@ -1,6 +1,6 @@
 
 streamlit
-openpyxl==3.0.10
+openpyxl==3.1.2 
 matplotlib
 numpy
 pandas
