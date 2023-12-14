@@ -138,6 +138,8 @@ else:
 
 		st.write('You selected the following file: '+file_name)
 
+		st.write(df)
+
 		st.write("Now running the retime algorithm...")
 
 
