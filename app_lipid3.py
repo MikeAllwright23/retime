@@ -144,7 +144,7 @@ else:
 			df_all=pd.read_csv(uploaded_file)
 			csv=True
 		except:
-			df_all=pd.read_excel(uploaded_file,sheet_name=None)
+			df_all=pd.read_excel(uploaded_file,sheet_name=None,engine="openpyxl")
 			csv=False
 		
 		if csv is True:
@@ -169,8 +169,8 @@ else:
 			df=df_all[k]
 			df.columns=[c.strip() for c in df.columns]
 
-			mask=(df['LipidID'].astype(str).apply(lambda x:len(x))>5)
-			df=df.loc[mask,]
+			#mask=(df['Lipid ID'].astype(str).apply(lambda x:len(str(x)))>5)
+			#df=df.loc[mask,]
 
 			#st.write(df.columns)
 
