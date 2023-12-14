@@ -189,7 +189,11 @@ else:
 
 			for i,c in enumerate(['spingoid_backbone_carb', 'spingoid_backbone_dbl_bonds','fatty_acyl_carb', 'fatty_acyl_dbl_bonds',
 							  'OH','mol_series']):
-				df[c]=df['carbs'].apply(lambda x:int(x[i]))
+				df[c]=df['carbs'].apply(lambda x:x[i])
+
+			for i,c in enumerate(['spingoid_backbone_carb', 'spingoid_backbone_dbl_bonds','fatty_acyl_carb', 'fatty_acyl_dbl_bonds'
+							  ]):
+				df[c]=df[c].astype(int)
 
 			
 			st.write(df)
