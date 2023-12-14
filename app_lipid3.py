@@ -13,6 +13,7 @@ import streamlit as st
 import numpy as np
 import time
 import pandas as pd
+import openpyxl
 import matplotlib.pyplot as plt
 import os
 from pathlib import Path
@@ -144,7 +145,7 @@ else:
 			df_all=pd.read_csv(uploaded_file)
 			csv=True
 		except:
-			df_all=pd.read_excel(uploaded_file,sheet_name=None)#,engine="openpyxl")
+			df_all=pd.read_excel(uploaded_file,sheet_name=None,encoding='latin1')#,engine="openpyxl")
 			csv=False
 		
 		if csv is True:
