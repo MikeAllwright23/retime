@@ -159,7 +159,7 @@ else:
 
 		#st.write(file_type)
 		clf_lass = linear_model.Lasso(alpha=0)
-		clf_ridge=linear_model.Ridge(alpha=0.4)
+		clf_ridge=linear_model.Ridge(alpha=0.9)
 		
 		for k in df_all.keys():
 
