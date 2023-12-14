@@ -169,13 +169,15 @@ else:
 			
 			df=df_all[k]
 
-			st.write(df)
+			
 			df.columns=[c.strip() for c in df.columns]
 
 			#mask=(df['Lipid ID'].astype(str).apply(lambda x:len(str(x)))>5)
 			#df=df.loc[mask,]
 
 			#st.write(df.columns)
+
+			st.write(df)
 
 			if "RT" in df.columns:
 				df.rename(columns={'RT':'Retention Time'})
