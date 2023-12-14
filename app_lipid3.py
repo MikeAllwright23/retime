@@ -29,7 +29,7 @@ from sklearn.metrics import r2_score
 # where data is stored
 path='raw_data/'
 predictors=['spingoid_backbone_dbl_bonds','fatty_acyl_dbl_bonds',\
-'spingoid_backbone_carb', 'fatty_acyl_carb','mass_squared','mass_sqrt','log_mass','Mass']#'Mass',
+'spingoid_backbone_carb', 'fatty_acyl_carb','log_mass','Mass','mass_squared','mass_sqrt']#'Mass','mass_squared','mass_sqrt',
 file_out='new_retenton_time_predictions.csv'
 
 
@@ -155,11 +155,9 @@ else:
 		#automatically assert Type field if not present:
 
 
-
-
 		#st.write(file_type)
-		clf_lass = linear_model.Lasso(alpha=0)
-		clf_ridge=linear_model.Ridge(alpha=0.9)
+		clf_lass = linear_model.Lasso(alpha=0.05)
+		clf_ridge=linear_model.Ridge(alpha=0.1)
 		
 		for k in df_all.keys():
 
@@ -194,11 +192,19 @@ else:
 				df[c]=df['carbs'].apply(lambda x:x[i])
 
 			
-
+			st.write(df)
 			mask=(df['Type']=="Train")
 			df_train=df.loc[mask,]
 
 			preds2=[p for p in predictors if df_train[p].nunique()>1]
+
+			#st.write(preds2)
+
+			st.write("predictors and # training variations")
+
+			st.write(dict(zip(predictors,[df_train[p].unique() for p in predictors])))
+
+			st.write("predictors used: "+','.join(preds2))
 
 			#st.write(df)
 
@@ -216,7 +222,11 @@ else:
 			ridge=clf_ridge.fit(X_train, y_train)
 			#xgb_mod_trained=xgb_mod.fit(X_train, y_train)
 			
-			lass =clf_lass.fit(X_train, y_train)
+			lass = clf_lass.fit(X_train, y_train)
+			st.write("lasso")
+			st.write(dict(zip(lass.feature_names_in_,lass.coef_)))
+			st.write("ridge")
+			st.write(dict(zip(ridge.feature_names_in_,ridge.coef_)))
 			
 			if df['Lipid ID'].apply(lambda x:x[0:3]=="Cer")[0]:
 				#st.write("Cer")
@@ -256,6 +266,16 @@ else:
 			df_out.sort_values(by='mol_series',inplace=True)
 			fig=sns.lmplot(data=df_out,x='m/z',y='Predicted Retention Time',hue='mol_series',order=2)
 			st.pyplot(fig)
+
+			mask=df_out['Type']=="Predict"
+
+			st.write(df_out.loc[mask,])
+			
+
+			mse = np.mean((df_out.loc[mask,'Actual Retention Time'] - df_out.loc[mask,'Predicted Retention Time']) ** 2)
+			rmse = np.sqrt(mse)
+
+			st.write("RMSE:", rmse)
 
 			#df_out.to_csv(path+file_out)
 
