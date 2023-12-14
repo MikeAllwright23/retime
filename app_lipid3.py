@@ -180,7 +180,7 @@ else:
 			st.write(df)
 
 			if "RT" in df.columns:
-				df.rename(columns={'RT':'Retention Time'})
+				df.rename(columns={'RT':'Retention Time'},inplace=True)
 
 			if 'Type' not in df.columns:
 				df['Type']='Train'
@@ -189,20 +189,19 @@ else:
 
 			df=mass_trans(df)
 
-			df=df.copy()
+			dfk=df.copy()
 			
-			df['carbs']=df['Lipid ID'].astype(str).apply(findx)
+			carbs=df['Lipid ID'].astype(str).apply(findx)
 
-			st.write(df['carbs'])
+			#st.write(df['carbs'])
 
 			for i,c in enumerate(['spingoid_backbone_carb', 'spingoid_backbone_dbl_bonds','fatty_acyl_carb', 'fatty_acyl_dbl_bonds',
 							  'OH','mol_series']):
 				st.write(c)
-				df[c]=df['carbs'].apply(lambda x:x[i])
-				if c=='mol_series':
-					df[c]=df[c].astype(str)
-
-
+				df[c]=[carb[i] for carb in carbs]
+			
+			df=df[pd.notnull(df['Lipid ID'])]
+			st.write(df)
 			
 			#st.write(df)
 			mask=(df['Type']=="Train")
