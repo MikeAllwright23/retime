@@ -147,7 +147,7 @@ else:
 			df_all=pd.read_csv(uploaded_file)
 			csv=True
 		except:
-			df_all=pd.read_excel(uploaded_file,sheet_name=None,encoding='latin1')#,engine="openpyxl")
+			df_all=pd.read_excel(uploaded_file,sheet_name=None)#,engine="openpyxl")
 			csv=False
 		
 		if csv is True:
@@ -189,7 +189,7 @@ else:
 
 			df=mass_trans(df)
 
-			dfk=df.copy()
+			df=df.copy()
 			
 			df['carbs']=df['Lipid ID'].astype(str).apply(findx)
 
@@ -204,7 +204,7 @@ else:
 
 
 			
-			st.write(df)
+			#st.write(df)
 			mask=(df['Type']=="Train")
 			df_train=df.loc[mask,]
 
