@@ -76,25 +76,25 @@ def mass_trans(df,verbose=False):
 #3 - split train and test
 
 def train_test_try(df,preds):
-    mask1=(df['Type']=="Train")
+	mask1=(df['Type']=="Train")
 
-    X_train=df.loc[mask1,preds]
-    y_train=df.loc[mask1,'Retention Time']
+	X_train=df.loc[mask1,preds]
+	y_train=df.loc[mask1,'Retention Time']
 
-    mask2=(df['Type']=="Predict")
+	mask2=(df['Type']=="Predict")
 
-    X_test=df.loc[mask2,preds]
-    y_test=df.loc[mask2,'Retention Time']
+	X_test=df.loc[mask2,preds]
+	y_test=df.loc[mask2,'Retention Time']
 
 
-    #y_test=df['Retention Time'][mask2]
-    
-    return X_train,y_train,X_test,y_test
+	#y_test=df['Retention Time'][mask2]
+	
+	return X_train,y_train,X_test,y_test
 
 scaler = StandardScaler()
 def scale_df(X,cols):
-    X[cols]=scaler.fit_transform(X[cols])
-    return X
+	X[cols]=scaler.fit_transform(X[cols])
+	return X
 
 
 def read_markdown_file(markdown_file):
@@ -158,14 +158,18 @@ else:
 
 		#st.write(file_type)
 		clf_lass = linear_model.Lasso(alpha=0)
+		clf_ridge=linear_model.Ridge(alpha=0.4)
 		
 		for k in df_all.keys():
 
 			#file_out='new_retenton_time_predictions.csv'
 
 			#truncate columns
+			
 			df=df_all[k]
 			df.columns=[c.strip() for c in df.columns]
+
+			#st.write(df.columns)
 
 			if "RT" in df.columns:
 				df.rename(columns={'RT':'Retention Time'})
@@ -179,7 +183,7 @@ else:
 
 			dfk=df.copy()
 			
-			df['carbs']=df['Lipid ID'].apply(findx)
+			df['carbs']=df['Lipid ID'].astype(str).apply(findx)
 
 			for i,c in enumerate(['spingoid_backbone_carb', 'spingoid_backbone_dbl_bonds','fatty_acyl_carb', 'fatty_acyl_dbl_bonds',
 							  'OH','mol_series']):
@@ -193,27 +197,36 @@ else:
 			preds2=[p for p in predictors if df_train[p].nunique()>1]
 
 			#st.write(df)
-		    
+
+			#st.write(df.dtypes)
+			
+			#st.write(df)
 			df=scale_df(df,preds2)
 
 			
-		    
+			
 			X_train,y_train,X_test,y_test=train_test_try(df,preds=preds2)
 
 			# DIFFERENT POTENTIAL MODELS BELOW
-		    #reg =clf_reg.fit(X_train, y_train)
-		    #ridge=clf_ridge.fit(X_train, y_train)
-		    #xgb_mod_trained=xgb_mod.fit(X_train, y_train)
-		    
+			#reg =clf_reg.fit(X_train, y_train)
+			ridge=clf_ridge.fit(X_train, y_train)
+			#xgb_mod_trained=xgb_mod.fit(X_train, y_train)
+			
 			lass =clf_lass.fit(X_train, y_train)
-		    
-			df['lass_ret']=lass.predict(df[preds2])
+			
+			if df['Lipid ID'].apply(lambda x:x[0:3]=="Cer")[0]:
+				#st.write("Cer")
+				df['pred_ret']=ridge.predict(df[preds2])
+			
+			else:
+				df['pred_ret']=lass.predict(df[preds2])
+			
 
 			
 
 			#now show the dumbell chart with predictions followed by the ability to download
 
-			df_out=df[['Lipid ID','mol_series','Type','lass_ret','Retention Time']]
+			df_out=df[['Lipid ID','mol_series','Type','pred_ret','Retention Time']]
 
 			df_out=pd.merge(dfk[['Lipid ID','Mass']],df_out,on='Lipid ID')
 
@@ -223,17 +236,18 @@ else:
 
 				df_out[c]=df_out[c].apply(lambda x:round(x,2))
 			st.write("Here are the retime generated retention times:")
-			st.write(df_out)	
+			#st.write(df_out)	
 
 			@st.cache
 			def convert_df(df):
-			    # IMPORTANT: Cache the conversion to prevent computation on every rerun
-			    return df.to_csv().encode('utf-8')
+				# IMPORTANT: Cache the conversion to prevent computation on every rerun
+				return df.to_csv().encode('utf-8')
 
 			csv = convert_df(df_out)
 			
 			file_out=file_name+' '+k+'.csv'
 
+			#st.write(df_out.head())
 			df_out.rename(columns={'Mass':'m/z'},inplace=True)
 			df_out.sort_values(by='mol_series',inplace=True)
 			fig=sns.lmplot(data=df_out,x='m/z',y='Predicted Retention Time',hue='mol_series',order=2)
@@ -244,10 +258,10 @@ else:
 			#st.write('File '+file_out+' exported!')
 
 			st.download_button(
-			    label="Download data as CSV",
-			    data=csv,
-			    file_name=path+file_out,
-			    mime='text/csv',
+				label="Download data as CSV",
+				data=csv,
+				file_name=path+file_out,
+				mime='text/csv',
 			)
 
 
