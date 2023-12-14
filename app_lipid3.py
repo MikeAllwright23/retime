@@ -187,6 +187,8 @@ else:
 			
 			df['carbs']=df['Lipid ID'].astype(str).apply(findx)
 
+			st.write(df['carbs'])
+
 			for i,c in enumerate(['spingoid_backbone_carb', 'spingoid_backbone_dbl_bonds','fatty_acyl_carb', 'fatty_acyl_dbl_bonds',
 							  'OH','mol_series']):
 				st.write(c)
@@ -194,10 +196,6 @@ else:
 				if c=='mol_series':
 					df[c]=df[c].astype(str)
 
-
-			for i,c in enumerate(['spingoid_backbone_carb', 'spingoid_backbone_dbl_bonds','fatty_acyl_carb', 'fatty_acyl_dbl_bonds'
-							  ]):
-				df[c]=df[c].astype(int)
 
 			
 			st.write(df)
