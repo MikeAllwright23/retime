@@ -118,14 +118,17 @@ st.title('ReTimeML: A Retention Time Predictor for the LC - MS/MS analysis of ce
 
 
 app_mode = st.sidebar.selectbox("Choose the app mode",
-["Show instructions", "Run the app", "Show the source code"])
+["Show instructions", "Run the app", "Show the source code","Download Example Data"])
 
 
-if app_mode=="Show instructions":
+if app_mode=="Show the source code":
+	st.write("For source code please contact michael.allwright@sydney.edu.au")
+
+elif app_mode=="Show instructions":
 	intro_markdown = read_markdown_file("intro.md")
 	st.markdown(intro_markdown, unsafe_allow_html=True)
 
-else:	
+elif app_mode=="Run the app":
 
 	intro_markdown = read_markdown_file("intro.md")
 	st.markdown(intro_markdown, unsafe_allow_html=True)
@@ -136,11 +139,9 @@ else:
 
 		file_name=re.sub('.xlsx|.csv','',uploaded_file.name)
 
-		st.write('You selected the following file: '+file_name)
+		#st.write('You selected the following file: '+file_name)
 
-		
-
-		st.write("Now running the retime algorithm...")
+		st.write("Now running the ReTimeML algorithm...")
 
 
 		try:
@@ -177,7 +178,7 @@ else:
 
 			#st.write(df.columns)
 
-			st.write(df)
+			#st.write(df)
 
 			if "RT" in df.columns:
 				df.rename(columns={'RT':'Retention Time'},inplace=True)
@@ -197,11 +198,11 @@ else:
 
 			for i,c in enumerate(['spingoid_backbone_carb', 'spingoid_backbone_dbl_bonds','fatty_acyl_carb', 'fatty_acyl_dbl_bonds',
 							  'OH','mol_series']):
-				st.write(c)
+				#st.write(c)
 				df[c]=[carb[i] for carb in carbs]
 			
 			df=df[pd.notnull(df['Lipid ID'])]
-			st.write(df)
+			
 			
 			#st.write(df)
 			mask=(df['Type']=="Train")
@@ -211,11 +212,10 @@ else:
 
 			#st.write(preds2)
 
-			st.write("predictors and # training variations")
+			
 
-			st.write(dict(zip(predictors,[df_train[p].unique() for p in predictors])))
+			#st.write(dict(zip(predictors,[df_train[p].unique() for p in predictors])))
 
-			st.write("predictors used: "+','.join(preds2))
 
 			#st.write(df)
 
@@ -234,17 +234,16 @@ else:
 			#xgb_mod_trained=xgb_mod.fit(X_train, y_train)
 			
 			lass = clf_lass.fit(X_train, y_train)
-			st.write("lasso")
-			st.write(dict(zip(lass.feature_names_in_,lass.coef_)))
-			st.write("ridge")
-			st.write(dict(zip(ridge.feature_names_in_,ridge.coef_)))
+			
 			
 			if df['Lipid ID'].apply(lambda x:x[0:3]=="Cer")[0]:
 				#st.write("Cer")
+				model_select="ridge"
 				df['pred_ret']=ridge.predict(df[preds2])
 			
 			else:
 				df['pred_ret']=lass.predict(df[preds2])
+				model_select="lasso"
 			
 
 			
@@ -260,7 +259,9 @@ else:
 			for c in ['Predicted Retention Time','Actual Retention Time']:
 
 				df_out[c]=df_out[c].apply(lambda x:round(x,2))
-			st.write("Here are the retime generated retention times:")
+
+			st.subheader("Break down of key molecules")
+			#st.write("Here are the retime generated retention times:")
 			#st.write(df_out)	
 
 			@st.cache
@@ -278,19 +279,9 @@ else:
 			fig=sns.lmplot(data=df_out,x='m/z',y='Predicted Retention Time',hue='mol_series',order=2)
 			st.pyplot(fig)
 
-			mask=df_out['Type']=="Predict"
-
-			st.write(df_out.loc[mask,])
 			
 
-			mse = np.mean((df_out.loc[mask,'Actual Retention Time'] - df_out.loc[mask,'Predicted Retention Time']) ** 2)
-			rmse = np.sqrt(mse)
-
-			st.write("RMSE:", rmse)
-
-			#df_out.to_csv(path+file_out)
-
-			#st.write('File '+file_out+' exported!')
+			st.subheader("Download Output Data")
 
 			st.download_button(
 				label="Download data as CSV",
@@ -299,11 +290,88 @@ else:
 				mime='text/csv',
 			)
 
+			
+			st.write(df_out)
+
 
 		#run models
 
+elif app_mode=="Download Example Data":
 
-	#import data in format lipid ID, Mass and retention time
+	st.header("Example Data Files Download")
 
-	#when mass is not available, fill in with mass from lipid list which we create
+	st.write("Download supplementary files to test ReTimeML here:")
+
+	lips4=['Cer (d18:2/16:1)','Cer (d18:2/16:0)','Cer (d18:1/16:1)','Cer (d18:1/16:0)','Cer (d18:0/16:0)','Cer (d18:1/17:0)','Cer (d18:2/18:1)','Cer (d18:2/18:0)','Cer (d18:1/18:1)',
+	'Cer (d18:1/18:0)','Cer (d18:0/18:0)','Cer (d18:2/20:1)','Cer (d18:2/20:0)','Cer (d18:1/20:1)','Cer (d18:1/20:0)','Cer (d18:0/20:0)','Cer (d18:2/22:1)',
+	'Cer (d18:2/22:0)','Cer (d18:1/22:1)','Cer (d18:1/22:0)','Cer (d18:0/22:0)','Cer (d18:2/24:1)','Cer (d18:2/24:0)','Cer (d18:1/24:1)','Cer (d18:1/24:0)','Cer (d18:0/24:0)']
+
+	mass4=[534.5,536.5,536.5,538.6,540.5,552.7,
+	562.5,564.5,564.5,566.6,568.6,590.6,
+	592.6,592.6,594.6,596.6,618.6,620.6,
+	620.6,622.6,624.6,646.6,648.6,648.6,650.7,652.9]
+
+	retimes4=[np.nan,np.nan,np.nan,15.05,15.27,15.33,np.nan,np.nan,15.05,15.7,15.91,np.nan,np.nan,np.nan,16.28,np.nan,np.nan,np.nan,np.nan,16.94,
+		np.nan,np.nan,np.nan,17.08,17.68,17.95]
+	
+
+	types4=['Test','Test','Test','Train','Train','Train','Test',
+	'Test','Train','Train','Train','Test','Test','Test',
+	'Train','Test','Test','Test','Test','Train',
+	'Test','Test','Test','Train','Train','Train']
+
+	lips5=['SM (d18:1/12:0)','SM (d18:2/16:1)','SM (d18:2/16:0)','SM (d18:1/16:1)','SM (d18:1/16:0)','SM (d18:0/16:0)','SM (d18:2/18:1)',
+	'SM (d18:2/18:0)','SM (d18:1/18:1)','SM (d18:1/18:0)','SM (d18:0/18:0)','SM (d18:2/20:1)','SM (d18:2/20:0)','SM (d18:1/20:1)',
+	'SM (d18:1/20:0)','SM (d18:0/20:0)','SM (d18:2/22:1)','SM (d18:2/22:0)','SM (d18:1/22:1)','SM (d18:1/22:0)',
+	'SM (d18:0/22:0)','SM (d18:2/24:1)','SM (d18:2/24:0)','SM (d18:1/24:1)','SM (d18:1/24:0)','SM (d18:0/24:0)',]
+
+	mass5=[647.5,699.6,701.6,701.6,703.5,705.6,
+	727.6,729.6,729.6,731.6,733.6,755.6,
+	757.6,757.6,759.6,761.6,783.7,785.7,
+	785.7,787.7,789.7,811.7,813.7,813.7,815.7,817.7,]
+
+	retimes5=[2.73,np.nan,np.nan,3.04,3.9,np.nan,
+	np.nan,np.nan,np.nan,4.96,5.58,np.nan,
+	np.nan,np.nan,np.nan,np.nan,np.nan,np.nan,
+	np.nan,np.nan,np.nan,np.nan,np.nan,9.83,11.1,np.nan,]
+
+
+	types5=['Train','Test','Test','Train','Train','Test',
+	'Test','Test','Test','Train','Train','Test',
+	'Test','Test','Test','Test','Test','Test',
+	'Test','Test','Test','Test','Test','Train','Train','Test']
+
+	df_supp4=pd.DataFrame({'Lipid ID':lips4,'Mass':mass4,'Retention Time':retimes4,'Type':types4})
+
+	df_supp5=pd.DataFrame({'Lipid ID':lips5,'Mass':mass5,'Retention Time':retimes5,'Type':types5})
+
+	@st.cache
+	def convert_df(df):
+		# IMPORTANT: Cache the conversion to prevent computation on every rerun
+		return df.to_csv().encode('utf-8')
+
+	csv_supp4 = convert_df(df_supp4)
+	csv_supp5 = convert_df(df_supp5)
+
+	st.subheader("Download Example Data Files")
+
+	st.download_button(
+		label="Download Supplementary File S4",
+		data=csv_supp4,
+		file_name="Supplementary File S4.csv",
+		mime='text/csv',
+	)
+
+	st.download_button(
+		label="Download Supplementary File S5",
+		data=csv_supp5,
+		file_name="Supplementary File S5.csv",
+		mime='text/csv',
+	)
+
+
+
+#import data in format lipid ID, Mass and retention time
+
+#when mass is not available, fill in with mass from lipid list which we create
 
