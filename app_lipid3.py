@@ -121,9 +121,6 @@ st.title('ReTimeML: A Retention Time Predictor for the LC - MS/MS analysis of ce
 
 
 
-#OLD and poss useful
-
-
 app_mode = st.sidebar.selectbox("Choose the app mode",
 ["Show instructions", "Run the app", "Show the source code","Download Example Data"])
 
@@ -167,7 +164,7 @@ elif app_mode=="Run the app":
 
 		#st.write(file_type)
 		clf_lass = linear_model.Lasso(alpha=0.001)
-		clf_ridge=linear_model.Ridge(alpha=0.4)
+		clf_ridge=linear_model.Ridge(alpha=0.1)
 		
 		for k in df_all.keys():
 
@@ -212,20 +209,7 @@ elif app_mode=="Run the app":
 
 			preds2=[p for p in predictors if df_train[p].nunique()>1]
 
-			
-
-			#st.write(preds2)
-
-			
-
-			#st.write(dict(zip(predictors,[df_train[p].unique() for p in predictors])))
-
-
-			#st.write(df)
-
-			#st.write(df.dtypes)
-			
-			#st.write(df)
+		
 			df=scale_df(df,preds2)
 
 			
@@ -247,6 +231,7 @@ elif app_mode=="Run the app":
 				ridge_coefs = dict(zip(preds2, ridge.coef_))
 
 				if verbose:
+					st.write("ridge model coefficients")
 					st.write(ridge_coefs)
 
 			
@@ -256,6 +241,7 @@ elif app_mode=="Run the app":
 				lasso_coefs = dict(zip(preds2, lass.coef_))
 
 				if verbose:
+					st.write("Lasso model coefficients")
 					st.write(lasso_coefs)
 
 			
@@ -266,7 +252,8 @@ elif app_mode=="Run the app":
 
 			df_out=df[['Lipid ID','mol_series','Type','pred_ret','Retention Time']]
 
-			st.write(df[list(df_out.columns)+preds2])
+			if verbose:
+				st.write(df[list(df_out.columns)+preds2])
 
 			df_out=pd.merge(dfk[['Lipid ID','Mass']],df_out,on='Lipid ID')
 
