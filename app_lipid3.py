@@ -173,12 +173,7 @@ elif app_mode=="Run the app":
 			
 			df.columns=[c.strip() for c in df.columns]
 
-			#mask=(df['Lipid ID'].astype(str).apply(lambda x:len(str(x)))>5)
-			#df=df.loc[mask,]
-
-			#st.write(df.columns)
-
-			#st.write(df)
+			
 
 			if "RT" in df.columns:
 				df.rename(columns={'RT':'Retention Time'},inplace=True)
@@ -242,7 +237,7 @@ elif app_mode=="Run the app":
 				df['pred_ret']=ridge.predict(df[preds2])
 			
 			else:
-				df['pred_ret']=lass.predict(df[preds2])
+				df['pred_ret']=ridge.predict(df[preds2])
 				model_select="lasso"
 			
 
