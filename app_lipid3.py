@@ -30,7 +30,14 @@ from sklearn.metrics import r2_score
 path='raw_data/'
 predictors=['spingoid_backbone_dbl_bonds','fatty_acyl_dbl_bonds',\
 'spingoid_backbone_carb', 'fatty_acyl_carb','log_mass','Mass','mass_squared','mass_sqrt']#'Mass','mass_squared','mass_sqrt',
+#predictors=['spingoid_backbone_dbl_bonds','fatty_acyl_dbl_bonds',\
+#'spingoid_backbone_carb', 'fatty_acyl_carb','mass_squared']#'Mass','mass_squared','mass_sqrt',
+
+#predictors=['spingoid_backbone_dbl_bonds','fatty_acyl_dbl_bonds',\
+#'spingoid_backbone_carb', 'fatty_acyl_carb','mass_squared']#log_mass','Mass']#,'mass_squared','mass_sqrt']#'Mass','mass_squared','mass_sqrt',
+
 file_out='new_retenton_time_predictions.csv'
+verbose=False
 
 
 #1 - import raw file produced by users
@@ -159,8 +166,8 @@ elif app_mode=="Run the app":
 
 
 		#st.write(file_type)
-		clf_lass = linear_model.Lasso(alpha=0.05)
-		clf_ridge=linear_model.Ridge(alpha=0.1)
+		clf_lass = linear_model.Lasso(alpha=0.001)
+		clf_ridge=linear_model.Ridge(alpha=0.4)
 		
 		for k in df_all.keys():
 
@@ -205,6 +212,8 @@ elif app_mode=="Run the app":
 
 			preds2=[p for p in predictors if df_train[p].nunique()>1]
 
+			
+
 			#st.write(preds2)
 
 			
@@ -235,10 +244,20 @@ elif app_mode=="Run the app":
 				#st.write("Cer")
 				model_select="ridge"
 				df['pred_ret']=ridge.predict(df[preds2])
+				ridge_coefs = dict(zip(preds2, ridge.coef_))
+
+				if verbose:
+					st.write(ridge_coefs)
+
 			
 			else:
-				df['pred_ret']=ridge.predict(df[preds2])
+				df['pred_ret']=lass.predict(df[preds2])
 				model_select="lasso"
+				lasso_coefs = dict(zip(preds2, lass.coef_))
+
+				if verbose:
+					st.write(lasso_coefs)
+
 			
 
 			
@@ -246,6 +265,8 @@ elif app_mode=="Run the app":
 			#now show the dumbell chart with predictions followed by the ability to download
 
 			df_out=df[['Lipid ID','mol_series','Type','pred_ret','Retention Time']]
+
+			st.write(df[list(df_out.columns)+preds2])
 
 			df_out=pd.merge(dfk[['Lipid ID','Mass']],df_out,on='Lipid ID')
 
@@ -274,6 +295,8 @@ elif app_mode=="Run the app":
 			df_out1.sort_values(by='mol_series',inplace=True)
 			fig=sns.lmplot(data=df_out1,x='m/z',y='Predicted Retention Time',hue='mol_series',order=2)
 			st.pyplot(fig)
+
+
 
 			
 
