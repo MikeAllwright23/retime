@@ -223,30 +223,52 @@ elif app_mode=="Run the app":
 			
 			lass = clf_lass.fit(X_train, y_train)
 			
-			
-			if df['Lipid ID'].apply(lambda x:x[0:3]=="Cer")[0]:
-				#st.write("Cer")
-				model_select="ridge"
-				df['pred_ret']=ridge.predict(df[preds2])
+			mask=df['Lipid ID'].apply(lambda x:x[0:3]=="Cer")
+			df_Cer=df.loc[mask,]
+
+			if df_Cer.shape[0]>2:
+				df_Cer['pred_ret']=ridge.predict(df_Cer[preds2])
 				ridge_coefs = dict(zip(preds2, ridge.coef_))
-
-				if verbose:
-					st.write("ridge model coefficients")
-					st.write(ridge_coefs)
-
-			
 			else:
-				df['pred_ret']=lass.predict(df[preds2])
-				model_select="lasso"
+				df_Cer=pd.DataFrame([])
+
+			df_SM=df.loc[~mask,]
+
+			if df_SM.shape[0]>2:
+				df_SM['pred_ret']=lass.predict(df_SM[preds2])
 				lasso_coefs = dict(zip(preds2, lass.coef_))
+			else:
+				df_SM=pd.DataFrame([])
 
-				if verbose:
-					st.write("Lasso model coefficients")
-					st.write(lasso_coefs)
+			df=pd.concat([df_Cer,df_SM],axis=0)
 
-			
+			if verbose:
+				st.write("Lasso model coefficients")
+				st.write(lasso_coefs)
+				st.write("ridge model coefficients")
+				st.write(ridge_coefs)
 
-			
+				# Below was unable to run both at once							
+				#if df['Lipid ID'].apply(lambda x:x[0:3]=="Cer")[0]:
+					#st.write("Cer")
+				#	model_select="ridge"
+				#	df['pred_ret']=ridge.predict(df[preds2])
+				#	ridge_coefs = dict(zip(preds2, ridge.coef_))
+
+				#	if verbose:
+				#		st.write("ridge model coefficients")
+				#		st.write(ridge_coefs)
+
+
+				#else:
+				#	df['pred_ret']=lass.predict(df[preds2])
+				#	model_select="lasso"
+				#	lasso_coefs = dict(zip(preds2, lass.coef_))
+
+				#	if verbose:
+				#		st.write("Lasso model coefficients")
+				#		st.write(lasso_coefs)
+							
 
 			#now show the dumbell chart with predictions followed by the ability to download
 
